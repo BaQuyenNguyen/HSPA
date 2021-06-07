@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IProperty } from '../IProperty.interface';
 
 @Component({
   selector: 'app-property-card',
@@ -6,9 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./property-card.component.scss'],
 })
 export class PropertyCardComponent {
-  @Input() property: any
-
+  @Input() property: IProperty;
+  showDefaultImage = false;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if(this.property.Image){
+      this.showDefaultImage = true;
+    }
+  }
 }
