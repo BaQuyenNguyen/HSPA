@@ -38,7 +38,8 @@
     "Type": "House",
     "Price": 16000,
     "Image": "house_5.jpg"
-  },{
+  },
+  {
     "Id": 6,
     "SellRent": 2,
     "Name": "House 6",
@@ -51,7 +52,6 @@
     "SellRent": 2,
     "Name": "House 7",
     "Type": "House",
-    "Price": 16000,
-    "Image": "house_7.jpg"
+    "Price": 16000
   }
 ]

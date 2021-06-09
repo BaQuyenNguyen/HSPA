@@ -8,12 +8,9 @@ import { IProperty } from '../IProperty.interface';
 })
 export class PropertyCardComponent {
   @Input() property: IProperty;
-  showDefaultImage = false;
   constructor() {}
 
+  // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
-    if(this.property.Image){
-      this.showDefaultImage = true;
-    }
   }
 }

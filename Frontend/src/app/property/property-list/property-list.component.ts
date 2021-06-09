@@ -12,19 +12,28 @@ import { IProperty } from '../IProperty.interface';
 export class PropertyListComponent implements OnInit {
   SellRent = 1;
   properties: Array<IProperty>;
+  showMessage = false;
 
-  constructor(private route: ActivatedRoute, private housingService: HousingService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private housingService: HousingService
+  ) {}
 
   ngOnInit(): void {
-    if(this.route.snapshot.url.toString()){
-      this.SellRent = 2; //Mean we are on rent-property URL else we are on base URL
+    if (this.route.snapshot.url.toString()) {
+      this.SellRent = 2; // Mean we are on rent-property URL else we are on base URL
     }
     this.housingService.getAllProperties(this.SellRent).subscribe(
-      data =>{
+      (data) => {
         this.properties = data;
-      }, error =>{
-        console.error('httperror:'),
-        console.log(error)
+        this.properties.forEach(element => {
+          if(!element.Image){
+            element.Image = 'house_default.png';
+          }
+        });
+      },
+      (error) => {
+        console.error('httperror:'), console.log(error);
       }
     );
   }
