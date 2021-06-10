@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { UserService } from 'src/app/services/user.service';
@@ -22,7 +23,8 @@ export class UserRegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private alertify: AlertifyService
+    private alertify: AlertifyService,
+    private toastr: ToastrService
     ) {}
 
   ngOnInit() {
