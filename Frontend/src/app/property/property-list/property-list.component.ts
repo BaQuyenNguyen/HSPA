@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IProperty } from 'src/app/models/iproperty';
 import { HousingService } from 'src/app/services/housing.service';
-import { IProperty } from '../IProperty.interface';
 
 @Component({
   selector: 'app-property-list',
@@ -26,8 +26,14 @@ export class PropertyListComponent implements OnInit {
     this.housingService.getAllProperties(this.SellRent).subscribe(
       (data) => {
         this.properties = data;
-        this.properties.forEach(element => {
-          if(!element.Image){
+
+        // const newProperty = JSON.parse(localStorage.getItem('newProp'));
+
+        // if (newProperty.SellRent == this.SellRent) {
+        //   this.properties = [newProperty, ...this.properties];
+        // }
+        this.properties.forEach((element) => {
+          if (!element.Image) {
             element.Image = 'house_default.png';
           }
         });
