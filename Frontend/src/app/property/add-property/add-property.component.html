@@ -197,7 +197,7 @@
                   <button
                     type="button"
                     class="btn btn-primary col-12 form-group"
-                    (click)="selectTab(0, false)"
+                    (click)="selectTab(0, PriceInfo.valid)"
                   >
                     Back
                   </button>
@@ -254,7 +254,7 @@
                   <button
                     type="button"
                     class="btn btn-primary col-12 form-group"
-                    (click)="selectTab(1, false)"
+                    (click)="selectTab(1, AddressInfo.valid)"
                   >
                     Back
                   </button>
@@ -283,7 +283,8 @@
                 </div>
 
                 <div class="form-group col-3">
-                  <label>Possession/Avaialble</label>
+                  <label *ngIf="RTM.value == 1">Establishment Date</label>
+                  <label *ngIf="RTM.value == 2">Possession Date</label>
                   <input
                     type="text"
                     placeholder="Datepicker"
@@ -295,7 +296,7 @@
                     }"
                   />
                 </div>
-                <div class="form-group col-12">
+                <!-- <div class="form-group col-12">
                   <label>Age of Property</label><br />
                   <input
                     type="text"
@@ -303,7 +304,7 @@
                     ngModel
                     formControlName="AOP"
                   />
-                </div>
+                </div> -->
                 <div class="form-group col-12">
                   <p>Gated Community</p>
                   <div class="btn-group" btnRadioGroup formControlName="Gated">
@@ -358,7 +359,7 @@
                   <button
                     type="button"
                     class="btn btn-primary col-12 form-group"
-                    (click)="selectTab(2, false)"
+                    (click)="selectTab(2, OtherInfo.valid)"
                   >
                     Back
                   </button>
@@ -375,7 +376,7 @@
                   <button
                     type="button"
                     class="btn btn-primary col-12 form-group"
-                    (click)="selectTab(3, false)"
+                    (click)="selectTab(3, OtherInfo.valid)"
                   >
                     Back
                   </button>
@@ -383,14 +384,14 @@
                   <button
                     type="reset"
                     class="btn btn-primary col-12 form-group"
-                    (click)="selectTab(3, false)"
+                    (click)="selectTab(3, OtherInfo.valid)"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     class="btn btn-primary col-12 form-group"
-                    (click)="selectTab(3, false)"
+                    (click)="selectTab(3, OtherInfo.valid)"
                   >
                     Save
                   </button>

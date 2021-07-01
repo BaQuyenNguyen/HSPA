@@ -16,7 +16,7 @@ export class HousingService {
       map((data) => {
         const propertiesArray: Array<IProperty> = [];
         const localProperties = JSON.parse(localStorage.getItem('newProp'));
-        if(localProperties){
+        if (localProperties){
           for (const id in localProperties) {
           if (localProperties.hasOwnProperty(id) && localProperties[id].SellRent === SellRent) {
             propertiesArray.push(localProperties[id]);
